@@ -11,7 +11,6 @@ def chat_list(request):
     return JsonResponse({'chats': chats})
 
 
-
 @require_POST
 def chat_create(request, num):
     check_exist_chat = list(map(lambda x: x['id'] != num, chats))
