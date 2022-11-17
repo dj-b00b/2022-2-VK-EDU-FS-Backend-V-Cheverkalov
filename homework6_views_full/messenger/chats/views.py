@@ -30,7 +30,6 @@ def serialize_admins_json(obj):
     admins_list = []
 
     for admin in admins:
-        print(admin)
         user = User.objects.get(id=admin.user_id)
         admins_list.append({
             'username': user.username,
