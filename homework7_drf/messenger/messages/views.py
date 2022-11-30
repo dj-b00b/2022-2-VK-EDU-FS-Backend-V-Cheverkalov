@@ -22,7 +22,7 @@ class ShowMessagesCreateMessage(ListCreateAPIView):
         return obj
 
 
-class AddReaction(CreateAPIView):  # Можно сделать чтобы возвращалась инфа из таблички юзеров или просто инфа общая по сообщениям всем
+class AddReaction(CreateAPIView):  
     serializer_class = UserReactionSerializer
     queryset = UserReaction.objects.all()  
 
@@ -45,7 +45,7 @@ class UpdateDeleteReaction(UpdateAPIView, DestroyAPIView):
    serializer_class = UserReactionSerializer
 
    def get_object(self):
-        message = self.kwargs.get('message_id')  ## нужно ли тут проверку делать или нет? 
+        message = self.kwargs.get('message_id')  
         user = self.kwargs.get('user_id')
 
         obj = get_object_or_404(UserReaction, message_id=message, user_id=user)
